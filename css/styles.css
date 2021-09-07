@@ -686,7 +686,6 @@ address {
   margin-left: 10px;
 }
 
-cursor: pointer;
 /* PORTFOLIO */
 
 /* Buttons */
@@ -887,10 +886,18 @@ cursor: pointer;
 
   border: 1px solid rgba(0, 0, 0, 0.1);
   background-color: #ffffff;
+
+  cursor: pointer;
 }
 
 .icon-close {
   fill: #000000;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.close-button:hover .icon-close,
+.close-button:focus .icon-close {
+  fill: var(--accent-color);
 }
 
 .form {
@@ -911,12 +918,13 @@ cursor: pointer;
 }
 
 .form-field {
+  position: relative;
   display: flex;
   flex-direction: column;
   margin-bottom: 10px;
 }
 
-.form-field-label {
+.form-label {
   margin-bottom: 4px;
 
   font-size: 12px;
@@ -926,19 +934,46 @@ cursor: pointer;
   color: var(--primary-text-color);
 }
 
-.form-field-input {
-  padding: 11px 12px;
+.form-input {
+  cursor: pointer;
+  padding: 11px 12px 11px 42px;
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
+  outline: none;
+  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.form-field-textarea {
+.form-input:focus {
+  border: 1px solid var(--accent-color);
+}
+
+.form-icon {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.form-input:focus ~ .form-icon {
+  fill: var(--accent-color);
+}
+
+.form-textarea {
+  cursor: pointer;
   padding: 12px 16px;
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
+  outline: none;
+
+  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.form-field-textarea::placeholder {
+.form-textarea:focus {
+  border: 1px solid var(--accent-color);
+}
+
+.form-textarea::placeholder {
   font-size: 12px;
   line-height: calc(14 / 12);
   letter-spacing: 0.01em;
@@ -951,11 +986,11 @@ cursor: pointer;
   align-items: center;
 }
 
-.form-field-checkbox {
+.form-checkbox {
   margin-right: 8.4px;
 }
 
-.form-field-agreement {
+.form-agreement {
   font-size: 14px;
   line-height: calc(24 / 14);
   letter-spacing: 0.03em;
@@ -963,8 +998,9 @@ cursor: pointer;
   color: var(--primary-text-color);
 }
 
-.form-field-link {
+.form-link {
   color: var(--accent-color);
+  text-decoration: underline;
 }
 
 .form-button {
