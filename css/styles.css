@@ -1001,11 +1001,14 @@ address {
 }
 
 .checkbox-input {
-  /* margin-right: 8.4px; */
   position: absolute;
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  appearance: none;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  clip: rect(0 0 0 0);
 }
 
 .checkbox-input:checked + .checkbox {
